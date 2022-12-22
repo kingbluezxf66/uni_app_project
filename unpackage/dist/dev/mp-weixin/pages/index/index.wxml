@@ -1,1 +1,1 @@
-<view>首页</view>
+<view data-event-opts="{{[['tap',[['loadHomeData',['$event']]]]]}}" bindtap="__e">首页</view>
