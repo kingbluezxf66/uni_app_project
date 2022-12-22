@@ -135,10 +135,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 3);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _index = _interopRequireDefault(__webpack_require__(/*! ../../store/index.js */ 158));
+//
+//
+//
 //
 //
 //
@@ -151,6 +156,13 @@ var _default = {
   onLoad: function onLoad() {
     // get请求
   },
+  computed: {
+    username: function username() {
+      return _index.default.state.username;
+      // return this.$store.state.username;
+    }
+  },
+
   methods: {
     loadHomeData: function loadHomeData() {
       uni.$u.http.get('/api/index', {
@@ -159,6 +171,12 @@ var _default = {
         }
       }).then(function (res) {
         console.log('=======' + res.links[0].id);
+      });
+    },
+    changeName: function changeName() {
+      // store.commit('changeName', '张三');
+      _index.default.dispatch('addChangeAction', 'lisi').then(function () {
+        console.log('改变啦------');
       });
     }
   }
